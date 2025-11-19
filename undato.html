@@ -9,10 +9,37 @@
 </head>
 
 <body>
-    <div class="form">
-        <h1>Tomar un solo dato</h1>
-        <p>Esperando...</p>
+   
+
+  <p id="infoHuerta">Cargando datos...</p>
+
+  <div class="contenedor-huerta">
+  <h2>Monitoreo de la Huerta</h2>
+
+  <div class="datos">
+    <div class="card">
+      <span>Temperatura del suelo</span>
+      <span id="temp" class="valor">--</span>
     </div>
+
+    <div class="card">
+      <span>Humedad del suelo</span>
+      <span id="hum" class="valor">--</span>
+    </div>
+
+    <div class="card">
+      <span>Luz solar</span>
+      <span id="luz" class="valor">--</span>
+    </div>
+
+    <div class="card">
+      <span>Nivel de agua del tanque</span>
+      <span id="agua" class="valor">--</span>
+    </div>
+  </div>
+</div>
+
+
 
 </body>
 <script type="module" src="undato.js"></script>

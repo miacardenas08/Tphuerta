@@ -22,9 +22,10 @@ const refDatos = ref(db, "huerta");
 onValue(refDatos, (snapshot) => {
     console.log(snapshot.val())
     let huerta = snapshot.val()
-    parrafo.textContent = `La huerta tiene una temperatura en el suelo de ${huerta.tempSuelo}° y de 
-    humedad de ${huerta.humSuelo}` + `Ademas, el nivel de luz solar actual es de ${huerta.luzSolar}lux.`
-    `Tambien el nivel de agua del tanque es de ${huerta.nivelAgua} litros.`
-    
+
+     document.getElementById("temp").textContent = `${huerta.tempSuelo}°C`;
+    document.getElementById("hum").textContent = `${huerta.humSuelo}%`;
+    document.getElementById("luz").textContent = `${huerta.luzSolar} lux`;
+    document.getElementById("agua").textContent = `${huerta.nivelAgua} litros`;
    
 })
