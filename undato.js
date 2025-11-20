@@ -23,9 +23,9 @@ onValue(refDatos, (snapshot) => {
     console.log(snapshot.val())
     let huerta = snapshot.val()
 
-     document.getElementById("temp").textContent = `${huerta.tempSuelo}°C`;
+    document.getElementById("temp").textContent = `${huerta.temp}°C`;
     document.getElementById("hum").textContent = `${huerta.humSuelo}%`;
-    document.getElementById("luz").textContent = `${huerta.luzSolar} lux`;
-    document.getElementById("agua").textContent = `${huerta.nivelAgua} litros`;
+    document.getElementById("luz").textContent = `${huerta.humaire}%`;
+
    
 })
