@@ -17,15 +17,29 @@ const db = getDatabase(app);
 
 let parrafo = document.querySelector("p");
 
+
+const infoHuerta = document.getElementById("infoHuerta");
+const temp = document.getElementById("temp");
+const hum = document.getElementById("hum");
+const luz = document.getElementById("luz");
+
+// Referencia de datos en Firebase
 const refDatos = ref(db, "huerta");
 
+// Escuchar datos en tiempo real
 onValue(refDatos, (snapshot) => {
-    console.log(snapshot.val())
-    let huerta = snapshot.val()
+    const huerta = snapshot.val();
+    console.log("Datos recibidos:", huerta);
 
-    document.getElementById("temp").textContent = `${huerta.temp}°C`;
-    document.getElementById("hum").textContent = `${huerta.humSuelo}%`;
-    document.getElementById("luz").textContent = `${huerta.humaire}%`;
+    if (!huerta) {
+        infoHuerta.textContent = "No hay datos disponibles.";
+        return;
+    }
 
-   
-})
+    infoHuerta.textContent = ""; // borrar mensaje
+
+    temp.textContent = huerta.temp + "°C";
+    hum.textContent = huerta.humSuelo + "%";
+    luz.textContent = huerta.humAire + "%";
+});
+
